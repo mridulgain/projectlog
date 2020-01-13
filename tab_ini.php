@@ -1,20 +1,34 @@
+<form action = "" method = "POST">
+	<input type='text' name = 'sql'>
+	<input type = 'submit' name = 'submit' value = 'run'>
+</form>
 <?php
-    function sql_status($conn, $sql, $tablename){
+	include("dbconfig.php");
+	if(isset($_POST['submit'])){
+		$sql = $_POST['sql'];
+		if(mysqli_query($conn, $sql)==TRUE){
+			header("location: tab_ini.php");
+		}
+		else{
+			echo $conn->error;
+		}
+	}
+    /*function sql_status($conn, $sql, $tablename){
         if ($conn->query($sql) === TRUE) {
-            echo "Table ", $tablename, " created successfully<br>";
+            echo "Table ", $tablename, " successfully<br>";
         }
         else{
             echo "Error creating table ", $tablename, " : " . $conn->error, "<br>";
         }
     }
-    include("dbconfig.php");
-    //sql1
+
+    //sql1---
     $sql = "Create table users(
                  username varchar(20) primary key,
                  passcode varchar(20))";
     sql_status($conn, $sql, "users");
     //sql2    
-    /*$sql = "Create table papers(id int auto_increment primary key,
+    $sql = "Create table papers(id int auto_increment primary key,
                  file longblob,
                  title varchar(1000))";
     sql_status($conn, $sql, "paperss");
@@ -24,14 +38,14 @@
     sql_status($conn, $sql, "meetingss");
     //sql3.5
     $sql = "ALTER TABLE meetings AUTO_INCREMENT=500";
-    sql_status($conn, $sql, "meeting_id_fix");*/
-    //sql4
+    sql_status($conn, $sql, "meeting_id_fix");
+    //sql4----
     $sql = "Create table comments(id int,
                  username varchar(20),
                  comment mediumtext)";
     sql_status($conn, $sql, "comments");
-    //sql5
-    $sql = "Create table papers(id int auto_increment,
-            title varchar(1000) primary key)";
-    sql_status($conn, $sql, "papers");
+    //sql5-----
+    $sql = "Create table papers(id int auto_increment primary key,
+            title varchar(1000))";
+    sql_status($conn, $sql, "papers");*/
 ?>
