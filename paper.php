@@ -1,9 +1,16 @@
+<script src="nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">
+    bkLib.onDomLoaded(function() {
+        new nicEditor({maxHeight : 200}).panelInstance('comment');
+    });
+</script>
+                        
 <?php
     //include('session.php');
     session_start();
     include('dbconfig.php');
     if(isset($_SESSION['current_user'])){
-        echo "<h3>Paper title here</h3>";
+        echo "<h4>Paper title here</h4>";
         $paper_id = $_GET['id'];
         $filename = $_GET['fname'];
         $username = $_SESSION['current_user'];
@@ -11,13 +18,13 @@
         echo "<iframe src='./papers/".$filename."' width='100%' height='500px'></iframe>";
 ?>
 <body bgcolor='#feffb9'>
-<form action = "" method = "POST">
-    <textarea name="comment" style="width: 100%;">
+<p><form action = "" method = "POST">
+    <textarea name="comment" style="height: 200;width: 100%;" id = 'comment'>
        Your comment here
-    </textarea><br/>
+    </textarea></br>
     <input type = "submit" name = "submit" value = "Publish">
     <input type = "hidden" name = "comment_submitted" value = "1">
-</form>
+</form></p>
 </body>
 <?php
         if(isset($_POST['comment'])){
