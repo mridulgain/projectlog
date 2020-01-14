@@ -1,0 +1,4 @@
+Create table users(username varchar(20) primary key, passcode varchar(20))
+Create table comments(id int, username varchar(20), comment mediumtext)
+Create table papers(id int auto_increment primary key, title varchar(1000))
+insert into users values('admin', 'admin')
