@@ -1,5 +1,7 @@
 <?php
-    include('session.php');
+    //include('session.php');
+    session_start();
+    include('dbconfig.php');
     if(isset($_SESSION['current_user'])){
         echo "<h3>Paper title here</h3>";
         $paper_id = $_GET['id'];
@@ -8,7 +10,7 @@
         //show iframe
         echo "<iframe src='./papers/".$filename."' width='100%' height='500px'></iframe>";
 ?>
-<body>
+<body bgcolor='#feffb9'>
 <form action = "" method = "POST">
     <textarea name="comment" style="width: 100%;">
        Your comment here
@@ -18,7 +20,7 @@
 </form>
 </body>
 <?php
-        if(isset($_POST['submit'])){
+        if(isset($_POST['comment'])){
             $comment = $_POST['comment'];
             $sql = "Insert into comments values($paper_id, '$username', '$comment')";
             //echo $sql;
@@ -38,5 +40,8 @@
                 echo $row['comment']."<br>";
             }
         } 
+    }
+    else{
+        echo "<p>Session closed. Please <a href='index.html'>login</a> again</p>";
     }    
 ?>
