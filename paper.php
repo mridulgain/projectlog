@@ -4,6 +4,7 @@
         echo "<h3>Paper title here</h3>";
         $paper_id = $_GET['id'];
         $filename = $_GET['fname'];
+        $username = $_SESSION['current_user'];
         //show iframe
         echo "<iframe src='./papers/".$filename."' width='100%' height='500px'></iframe>";
 ?>
@@ -19,7 +20,7 @@
 <?php
         if(isset($_POST['submit'])){
             $comment = $_POST['comment'];
-            $sql = "Insert into comments values($paper_id,'username here', '$comment')";
+            $sql = "Insert into comments values($paper_id, '$username', '$comment')";
             //echo $sql;
             if(mysqli_query($conn, $sql) == TRUE){
                 $temp = "paper.php?id=$paper_id&fname=$filename";

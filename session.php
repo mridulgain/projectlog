@@ -1,5 +1,5 @@
 <title>projectlog</title>
-<h4>Project log</h4>
+<h4>Project logger</h4>
 <?php
     session_start();  
     include('dbconfig.php');
@@ -7,8 +7,8 @@
 ?>
     <form action = "" method = "post">
         <label>UserName  :</label><input type = "text" name = "username" class = "box"/><br>
-        <label>Password  :</label><input type = "password" name = "password" class = "box" /><br>
-        <input type = "submit" name = "submit" value = " Submit "/><br>
+        <label>Password  :</label><input type = "password" name = "password" class = "box"/><br>
+        <input type = "submit" name = "submit" value = " Log in"/><br>
     </form>
 <?php
         if(isset($_POST['submit'])){
@@ -30,6 +30,5 @@
         echo "<body bgcolor='#E6E6FA'>";
         echo "<p>Welcome ".$_SESSION['current_user']." ";
         echo "<a href='logout.php'>logout</a></p>";
-        echo "</body>";
     }
 ?>
