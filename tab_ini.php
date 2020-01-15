@@ -6,8 +6,14 @@
 	include("dbconfig.php");
 	if(isset($_POST['submit'])){
 		$sql = $_POST['sql'];
-		if(mysqli_query($conn, $sql)==TRUE){
-			header("location: tab_ini.php");
+		if($rs = mysqli_query($conn, $sql)){
+            if(gettype($rs) == 'boolean')
+                echo "query executed successfully";
+            else
+                while($row = mysqli_fetch_assoc($rs)){
+                    print_r($row);
+                    echo "<br>";
+                }
 		}
 		else{
 			echo $conn->error;
