@@ -1,4 +1,4 @@
-<title>projectlog</title>
+<title>projectlog2020</title>
 <h4>Project logger</h4>
 <?php
     session_start();  
@@ -6,8 +6,8 @@
     if(!isset($_SESSION['current_user'])){
 ?>
     <form action = "" method = "post">
-        <label>UserName  :</label><input type = "text" name = "username" class = "box"/><br>
-        <label>Password  :</label><input type = "password" name = "password" class = "box"/><br>
+        <label>UserName</label>&nbsp;<input type = "text" name = "username" class = "box"/><br>
+        <label>Password</label>&nbsp;&nbsp;&nbsp;<input type = "password" name = "password" class = "box"/><br>
         <input type = "submit" name = "submit" value = " Log in"/><br>
     </form>
 <?php
