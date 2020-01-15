@@ -5,4 +5,4 @@ Click [here](https://scis.uohyd.ac.in/~mc17mc40/projectlog/ "Project logger") fo
 + username : guest
 + password : guest
 
-Checkout this cool WYSIWYG editor, [NicEdit](http://nicedit.com/ "NicEdit's Homepage") developed by [Brian Kirchoff](http://bkirchoff.com/ "Brian Kirchoff's homepage") that I have used in this project.
+Checkout [NicEdit](http://nicedit.com/ "NicEdit's Homepage"), a cool WYSIWYG editor developed by [Brian Kirchoff](http://bkirchoff.com/ "Brian Kirchoff's homepage") that I have used in this project.
