@@ -27,7 +27,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <body bgcolor='#feffb9'>
 <p><form action = "" method = "POST">
     <textarea name="comment" style="height: 200;width: 100%;" id = 'comment'>
-    &nbsp;&nbsp; Your comment here... as <?php echo $username; ?></div>
+    &nbsp;&nbsp;Your comment here... as <?php echo $username; ?></div>
     </textarea></br>
     <input type = "submit" name = "submit" value = "Post">
 </form></p>
@@ -35,7 +35,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <?php
         if(isset($_POST['comment'])){
             $comment = $_POST['comment'];
-            $sql = "Insert into comments(id, username, comment) values($paper_id, '$username', '$comment')";
+            $sql = "Insert into comments(pid, username, comment) values($paper_id, '$username', '$comment')";
             //echo $sql;
             if(mysqli_query($conn, $sql) == TRUE){
                 $temp = "paper.php?id=$paper_id&fname=$filename";
@@ -45,7 +45,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
         }
-        $sql = "SELECT * FROM comments where id=$paper_id order by posted_at";
+        $sql = "SELECT * FROM comments where pid=$paper_id order by posted_at";
         $resultset = mysqli_query($conn, $sql);    // query execution
         if($resultset){
             echo "<table border=1>";

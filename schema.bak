@@ -1,4 +1,4 @@
 Create table users(username varchar(20) primary key, passcode varchar(20))
-Create table comments(id int, username varchar(20), comment mediumtext, posted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)
+Create table comments(pid int NOT NULL, username varchar(20), comment mediumtext, posted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)
 Create table papers(id int auto_increment primary key, title varchar(1000))
 insert into users values('admin', 'admin')
